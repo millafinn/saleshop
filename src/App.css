@@ -1,38 +1,175 @@
+/* Estilos Gerais */
 .App {
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F5; /* Mantém o fundo claro */
+}
+
+/* Cabeçalho (Header) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff; /* Fundo branco */
+  color: #333; /* Texto escuro */
+  padding: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra suave */
+}
+
+/* Logo */
+.logo {
+  width: 90px;
+}
+
+/* Navegação no Cabeçalho */
+.header nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.header nav ul li {
+  margin: 0 1rem;
+}
+
+.header nav ul li a {
+  color: #333; /* Cor preta para os links do menu */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  font-weight: bold; /* Texto em negrito para destaque */
+}
+
+/* Efeito ao passar o mouse no menu */
+.header nav ul li a:hover {
+  color: #FFD700; /* Muda para amarelo ao passar o mouse */
+}
+
+/* Botões de Login e Registre-se */
+.login-btn {
+  background-color: #333; /* Preto para o botão de Login */
+  color: #fff; /* Texto branco */
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.register-btn {
+  background-color: #FFD700; /* Amarelo para o botão de Registre-se */
+  color: #333; /* Texto escuro */
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-left: 1rem; /* Espaçamento entre os botões */
+}
+
+/* Interação dos botões ao passar o mouse */
+.login-btn:hover, .register-btn:hover {
+  opacity: 0.8; /* Leve transparência ao passar o mouse */
+}
+
+/* Corpo Principal (Main) */
+.main {
+  padding: 2rem;
+  background-color: #F5F5F5; /* Fundo da página */
+}
+
+.ofertas h2 {
+  margin-bottom: 1rem;
+  color: #FFD700; /* Amarelo da logo */
+}
+
+/* Grade de Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Cards de Produto */
+.card {
+  border: 1px solid #ccc; /* Cinza claro para os detalhes */
+  border-radius: 5px;
+  text-align: center;
+  padding: 1rem;
+  background-color: #FFF; /* Fundo branco */
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #333; /* Texto escuro */
+}
+
+.card span {
+  color: #FFD700; /* Preço em amarelo */
+}
+
+/* Detalhes do Produto */
+.detalhes-produto {
+  background-color: #FFF; /* Fundo branco */
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.detalhes-produto h2 {
+  color: #333; /* Título em preto */
+}
+
+.detalhes-produto p {
+  color: #666; /* Texto em cinza */
+}
+
+/* Rodapé (Footer) */
+.footer {
+  background-color: #333; /* Fundo escuro */
+  color: #FFD700; /* Texto em amarelo */
+  padding: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Categorias no Rodapé */
+.categorias ul {
+  list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.categorias ul li {
+  margin-bottom: 0.5rem;
+  color: #FFD700; /* Amarelo da logo */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+.carousel-button.prev {
+  left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carousel-button.next {
+  right: 10px;
 }
