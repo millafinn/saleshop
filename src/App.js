@@ -16,7 +16,6 @@ function App() {
     <div className="App">
       <header className="header">
         <img src={logo} alt="Logo" className="logo" />
-        <h1>Sale & Shop</h1>
         <nav>
           <ul>
             <li><a href="#ofertas">Ofertas</a></li>
