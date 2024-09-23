@@ -9,6 +9,12 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* @media (max-width: 768px) {
+    .align-header {
+        display: block;
+    }
+} */
+
 .logo {
     width: 90px;
 }
@@ -78,10 +84,19 @@
         width: 100%;
         padding: 1rem;
     }
+    
 
     .header.nav-open ul {
         display: flex;
     }
+    @media (max-width: 768px) {
+    .header.nav-open ul {
+        display: flex;
+        width:100%;
+        flex-direction: row;
+        justify-content: end;
+    }
+}
 
     .header nav ul li {
         margin: 1rem 0;
@@ -110,9 +125,21 @@
 
 /* Grade de Cards */
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+        display:flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: left;
+        padding: 3rem;
+}
+@media screen and ((max-width: 768px)) {
+    .card-grid {
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }
 
 .card img {
@@ -159,6 +186,16 @@
     /* Texto em amarelo */
     padding: 1rem;
     text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .footer {
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+    }
 }
 
 /* Categorias no Rodapé */
@@ -252,8 +289,17 @@ svg {
     background-color: #FFD700;
 }
 
+@media screen and (max-width: 768px) {
+    .card-container {
+        align-items: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+}
+
 .card-container {
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: center
+
 }
