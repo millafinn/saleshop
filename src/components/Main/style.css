@@ -4,20 +4,29 @@
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
-    /* Fundo branco */
     color: #333;
-    /* Texto escuro */
     padding: 1rem;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    /* Adiciona sombra suave */
 }
 
-/* Logo */
 .logo {
     width: 90px;
 }
 
-/* Navegação no Cabeçalho */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .header nav ul {
     display: flex;
     list-style-type: none;
@@ -29,41 +38,56 @@
 
 .header nav ul li a {
     color: #333;
-    /* Cor preta para os links do menu */
     text-decoration: none;
-    /* Remove o sublinhado dos links */
     font-weight: bold;
-    /* Texto em negrito para destaque */
 }
 
-/* Efeito ao passar o mouse no menu */
 .header nav ul li a:hover {
     color: #FFD700;
-    /* Muda para amarelo ao passar o mouse */
 }
 
-/* Botões de Login e Registre-se */
+.login-btn,
+.register-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
 .login-btn {
     background-color: #333;
-    /* Preto para o botão de Login */
     color: #fff;
-    /* Texto branco */
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
 }
 
 .register-btn {
     background-color: #FFD700;
-    /* Amarelo para o botão de Registre-se */
     color: #333;
-    /* Texto escuro */
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
     margin-left: 1rem;
-    /* Espaçamento entre os botões */
 }
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .header nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .header.nav-open ul {
+        display: flex;
+    }
+
+    .header nav ul li {
+        margin: 1rem 0;
+    }
+}
+
 
 /* Interação dos botões ao passar o mouse */
 .login-btn:hover,
@@ -74,7 +98,6 @@
 
 /* Corpo Principal (Main) */
 .main {
-    padding: 2rem;
     background-color: #F5F5F5;
     /* Fundo da página */
 }
@@ -88,19 +111,8 @@
 /* Grade de Cards */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-}
-
-/* Cards de Produto */
-.card {
-    border: 1px solid #ccc;
-    /* Cinza claro para os detalhes */
-    border-radius: 5px;
-    text-align: center;
-    padding: 1rem;
-    background-color: #FFF;
-    /* Fundo branco */
 }
 
 .card img {
@@ -116,7 +128,7 @@
 }
 
 .card span {
-    color: #FFD700;
+    color: #666;
     /* Preço em amarelo */
 }
 
@@ -157,4 +169,91 @@
 .categorias ul li {
     margin-bottom: 0.5rem;
     color: #FFD700;
+}
+
+.li-menu {
+    display: flex;
+    align-items: center;
+}
+
+.produtos-main {
+    padding: 2rem;
+}
+
+
+.card {
+    width: 220px;
+    height: 345px;
+    padding: .8em;
+    background: #f5f5f5;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-top: 35px;
+    margin-right: 75px;
+}
+
+.card-img {
+    background-color: #ffed87;
+    height: 40%;
+    width: 100%;
+    border-radius: .5rem;
+    transition: .3s ease;
+}
+
+.card-info {
+    padding-top: 10%;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+}
+
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/*Text*/
+.text-title {
+    font-weight: 900;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.text-body {
+    font-size: .9em;
+    padding-bottom: 10px;
+}
+
+/*Button*/
+.card-button {
+    border: 1px solid #252525;
+    display: flex;
+    padding: .3em;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: .3s ease-in-out;
+}
+
+/*Hover*/
+.card-img:hover {
+    transform: translateY(-25%);
+    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+.card-button:hover {
+    border: 1px solid #FFD700;
+    background-color: #FFD700;
+}
+
+.card-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
