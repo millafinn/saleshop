@@ -74,17 +74,6 @@
     /* Texto em cinza */
 }
 
-/* Rodapé (Footer) */
-.footer {
-    background-color: #333;
-    /* Fundo escuro */
-    color: #FFD700;
-    /* Texto em amarelo */
-    padding: 1rem;
-    text-align: center;
-}
-
-
 @media screen and (max-width: 768px) {
     .footer {
         align-items: center;
