@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 import './style.css'; // Importa o CSS
 import Carousel from '../Carousel/Carousel';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+
 
 
 const Main = () => {
@@ -167,8 +169,9 @@ const Main = () => {
                     </div>
                 </section>
             </main>
+            <Footer />
 
-            <footer className="footer">
+            {/* <footer className="footer">
                 <p>© 2024 Sale & Shop - Todos os direitos reservados.</p>
                 {/* <div className="categorias">
           <h4>Categorias</h4>
@@ -177,8 +180,8 @@ const Main = () => {
             <li>Categoria 2</li>
             <li>Categoria 3</li>
           </ul>
-        </div> */}
-            </footer>
+        </div> 
+            </footer> */}
         </div>
     );
 };
