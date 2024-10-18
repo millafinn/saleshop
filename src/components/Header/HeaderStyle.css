@@ -1,0 +1,91 @@
+/* Cabeçalho (Header) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    padding: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    width: 90px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.header nav ul li {
+    margin: 0 1rem;
+}
+
+.header nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.header nav ul li a:hover {
+    color: #FFD700;
+}
+
+.login-btn,
+.register-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.login-btn {
+    background-color: #333;
+    color: #fff;
+}
+
+.register-btn {
+    background-color: #FFD700;
+    color: #333;
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+       
+    }
+
+    .header nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+        z-index: 1; 
+    }
+
+    .nav-open ul {
+        display: flex;
+    }
+
+    .header nav ul li {
+        margin: 1rem 0;
+    }
+}
