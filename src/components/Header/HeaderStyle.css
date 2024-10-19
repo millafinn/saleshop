@@ -34,14 +34,15 @@ body {
   /* Mantém margem lateral para o menu desktop */
 }
 
-.li-menu a {
+.li-menu  {
   color: #333;
   text-decoration: none;
   padding: 8px 12px;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
-.li-menu a:hover {
+.li-menu {
   background-color: rgba(255, 255, 255, 0.2);
 }
 

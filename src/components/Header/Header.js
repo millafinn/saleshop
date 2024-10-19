@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import './HeaderStyle.css'; 
+import './HeaderStyle.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleHomeClick = () => {
+    navigate(`/`);
   };
 
   return (
@@ -13,10 +19,10 @@ const Header = () => {
       <img src="/images/logo_sale.png" alt="Logo" className="logo" />
       <div className={`menu ${isOpen ? 'open' : ''}`}>
         <ul>
-          <li className="li-menu"><a href="#ofertas">Ofertas</a></li>
-          <li className="li-menu"><a href="#precos">Preços</a></li>
-          <li className="li-menu"><a href="#fan-club">Fan Clube</a></li>
-          <li className="li-menu"><a href="#contato">Contato</a></li>
+          <li className="li-menu" onClick={handleHomeClick}>Home</li>
+          <li className="li-menu">Preços</li>
+          <li className="li-menu">Fan Clube</li>
+          <li className="li-menu">Contato</li>
           <li className="li-menu"><button className="login-btn">Login</button></li>
           <li className="li-menu"><button className="register-btn">Registre-se</button></li>
         </ul>
