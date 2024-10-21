@@ -6,12 +6,11 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const Details = () => {
-    const { id } = useParams(); // Pegar o ID da URL
-    const [produto, setProduto] = useState(null); // Estado para armazenar o produto
+    const { id } = useParams(); 
+    const [produto, setProduto] = useState(null); 
 
-    // Função para buscar o produto específico da Fake Store API
     useEffect(() => {
-        axios.get(`https://fakestoreapi.com/products/${id}`)
+        axios.get(`https://api.mercadolibre.com/items/${id}`)
             .then(response => {
                 setProduto(response.data);
             })
@@ -30,13 +29,15 @@ const Details = () => {
             <main className="main">
                 <div className="product-details">
                     <div className="product-image">
-                        <img src={produto.image} alt={produto.title} />
+                        <img src={produto.pictures && produto.pictures[0]?.url} alt={produto.title} />
                     </div>
                     <div className="product-info">
                         <h2>{produto.title}</h2>
                         <p className="product-price">R${produto.price}</p>
                         <p className="product-description">{produto.description}</p>
-                        <button className="buy-button">Seguir link</button>
+                        <button className="buy-button">
+                            <a href={produto.permalink} target="_blank" rel="noopener noreferrer">Seguir link</a>
+                        </button>
                     </div>
                 </div>
             </main>
