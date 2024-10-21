@@ -6,6 +6,9 @@ import './searchbar.css';
 import Carousel from '../Carousel/Carousel';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { Main as StyledMain} from '../global-styles';
+
+
 
 const Main = () => {
     const imagens = [
@@ -40,7 +43,7 @@ const Main = () => {
     return (
         <div className="App">
             <Header />
-            <main className="main">
+            <StyledMain>
                 <section id="ofertas" className="ofertas">
                     <Carousel imagens={imagens} />
 
@@ -70,7 +73,7 @@ const Main = () => {
                         <MercadoLivreProducts category={category} limit={limit} />
                     </div>
                 </section>
-            </main>
+            </StyledMain>
             <Footer />
         </div>
     );
