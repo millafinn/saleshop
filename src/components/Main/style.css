@@ -7,13 +7,6 @@
     /* Leve transparência ao passar o mouse */
 }
 
-/* Corpo Principal (Main) */
-.main {
-    background-color: #F5F5F5;
-    padding: 20px;
-    /* Fundo da página */
-}
-
 .ofertas h2 {
     margin-bottom: 1rem;
     color: #FFD700;

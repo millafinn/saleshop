@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './HeaderStyle.css';
 import { useNavigate } from 'react-router-dom';
+import Button from './Button';
+
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +26,8 @@ const Header = () => {
           <li className="li-menu">Preços</li>
           <li className="li-menu">Fan Clube</li>
           <li className="li-menu">Contato</li>
-          <li className="li-menu"><button className="login-btn">Login</button></li>
-          <li className="li-menu"><button className="register-btn">Registre-se</button></li>
+          <li className="li-menu"><Button className="login-btn">Login</Button></li>
+          <li className="li-menu"><Button className="register-btn">Registre-se</Button></li>
         </ul>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
