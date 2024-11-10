@@ -4,31 +4,28 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    margin: 20px 0;
     padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 12px;
+    width: 715px;
 }
 
-.search-bar-btn{
-    max-width: 50px;
+.search-bar select,
+.search-bar input[type="number"],
+.search-bar button {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 /* Estilo do dropdown de categorias */
 .search-bar select {
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
     border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: #fff;
     color: #495057;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease-in-out;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease-in-out;
 }
 
 .search-bar select:focus {
@@ -40,14 +37,10 @@
 /* Estilo do campo de limite de itens */
 .search-bar input[type="number"] {
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
     border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: #fff;
     color: #495057;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease-in-out;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar input[type="number"]:focus {
@@ -58,23 +51,21 @@
 
 /* Estilo do botão */
 .search-bar button {
-    padding: 5px 5px;
-    font-size: 1rem;
-    background-color: #007bff;
+    background-color: gray;
     color: white;
     border: none;
-    border-radius: 4px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar button:hover {
-    background-color: #0056b3;
+    background-color: #333;
 }
 
 .search-bar button:active {
-    background-color: #003f7f;
+    background-color: #333;
+    transform: scale(0.98);
 }
 
 /* Estilo responsivo */
@@ -82,14 +73,12 @@
     .search-bar {
         flex-direction: row;
         justify-content: space-between;
+        gap: 10px;
     }
 
     .search-bar select,
-    .search-bar input[type="number"] {
-        width: 45%;
-    }
-
+    .search-bar input[type="number"],
     .search-bar button {
-        width: 10%;
+        width: 30%;
     }
 }

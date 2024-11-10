@@ -1,73 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useRef } from 'react';
 import MercadoLivreProducts from '../APIComponent/MercadoLivreAPI';
 import './style.css';
-import './searchbar.css';
 import Carousel from '../Carousel/Carousel';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 const Main = () => {
-    const imagens = [
-        '/images/3980812.jpg',
-        '/images/5645311.jpg',
-        '/images/mias1.jpg',
-    ];
+    const produtosRef = useRef(null);
 
-    const [categories, setCategories] = useState([]); 
-    const [category, setCategory] = useState('MLB1051'); 
-    const [limit, setLimit] = useState(8); 
-    const [searchCategory, setSearchCategory] = useState('MLB1051'); // categoria inicial
-    const [searchLimit, setSearchLimit] = useState(8); // limite inicial
-
-    useEffect(() => {
-        const fetchCategories = async () => {
-            try {
-                const response = await axios.get('https://api.mercadolibre.com/sites/MLB/categories');
-                setCategories(response.data); // Armazenar as categorias obtidas
-            } catch (error) {
-                console.error('Erro ao buscar categorias:', error);
-            }
-        };
-        fetchCategories();
-    }, []);
-
-    const handleSearch = () => {
-        setCategory(searchCategory); // Atualizar a categoria com o valor selecionado
-        setLimit(searchLimit); // Atualizar o limite com o valor digitado
+    const scrollToProdutos = () => {
+        produtosRef.current.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const imagens = [
+        '/images/imagem_carousel1.webp',
+        '/images/imagem_carousel2.webp',
+        '/images/imagem_carousel3.webp',
+        '/images/imagem_carousel4.webp',
+        '/images/imagem_carousel5.webp',
+    ];
 
     return (
         <div className="App">
-            <Header />
+            <Header onProdutosClick={scrollToProdutos} />
             <main className="main">
                 <section id="ofertas" className="ofertas">
                     <Carousel imagens={imagens} />
-
-                    <div className='search-bar'>
-                        {/* Dropdown para selecionar categorias */}
-                        <select
-                            value={searchCategory}
-                            onChange={(e) => setSearchCategory(e.target.value)}
-                        >
-                            {categories.map((cat) => (
-                                <option key={cat.id} value={cat.id}>
-                                    {cat.name}
-                                </option>
-                            ))}
-                        </select>
-
-                        <input className='search-bar-btn'
-                            type="number"
-                            placeholder="Digite o limite de itens"
-                            value={searchLimit}
-                            onChange={(e) => setSearchLimit(e.target.value)}
-                        />
-                        <button onClick={handleSearch}>Buscar</button>
-                    </div>
-
-                    <div className='produtos-main'>
-                        <MercadoLivreProducts category={category} limit={limit} />
+                    <div ref={produtosRef} className='produtos-main'>
+                        <MercadoLivreProducts />
                     </div>
                 </section>
             </main>

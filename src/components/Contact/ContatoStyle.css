@@ -1,0 +1,61 @@
+.contato-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.contato-container {
+    background-color: #fff;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.contato-container:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contato-titulo {
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+.contato-descricao {
+    margin-bottom: 24px;
+    color: #666;
+}
+
+.contato-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contato-input {
+    margin-bottom: 20px;
+}
+
+.contato-input .MuiInputBase-root {
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+
+.contato-input label.Mui-focused {
+    color: #ffc107;
+}
+
+.contato-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ffc107;
+}
+
+
+@media (max-width: 600px) {
+    .contato-container {
+        padding: 20px;
+    }
+}

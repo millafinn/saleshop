@@ -1,31 +1,52 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Main/style.css';
+import './searchbar.css';
 
 
-const MercadoLivreProducts = ({ category, limit }) => {
-  const navigate = useNavigate(); 
+const MercadoLivreProducts = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState('MLB1051');
+  const [limit, setLimit] = useState(20);
+  const [searchCategory, setSearchCategory] = useState('MLB1051'); // categoria inicial
+  const [searchLimit, setSearchLimit] = useState(); // limite inicial
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get(
-          `https://api.mercadolibre.com/sites/MLB/search?category=${category}&limit=${limit}`
-        );
-        setProducts(response.data.results);
-      } catch (err) {
-        setError('Error fetching data');
-      }
-      setLoading(false);
-    };
-
+    fetchCategories();
     fetchProducts();
   }, [category, limit]);
+
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `https://api.mercadolibre.com/sites/MLB/search?category=${category}&limit=${limit}`
+      );
+      setProducts(response.data.results);
+    } catch (err) {
+      setError('Error fetching data');
+    }
+    setLoading(false);
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await axios.get('https://api.mercadolibre.com/sites/MLB/categories');
+      setCategories(response.data); // Armazenar as categorias obtidas
+    } catch (error) {
+      console.error('Erro ao buscar categorias:', error);
+    }
+  };
+
+  const handleSearch = () => {
+    setCategory(searchCategory); // Atualizar a categoria com o valor selecionado
+    setLimit(searchLimit); // Atualizar o limite com o valor digitado
+  };
 
   const handleProductClick = (id) => {
     navigate(`/details/${id}`); // Navegar para a página de detalhes com o ID do produto
@@ -41,7 +62,32 @@ const MercadoLivreProducts = ({ category, limit }) => {
 
   return (
     <div>
-      <h2>Ofertas do dia</h2>
+      <div style={{display:'flex', justifyContent:'space-between'}}>
+        <div style={{display:'flex', alignItems:'end'}}>
+          <h2>Ofertas do dia</h2>
+        </div>
+        <div className='search-bar'>
+          {/* Dropdown para selecionar categorias */}
+          <select
+            value={searchCategory}
+            onChange={(e) => setSearchCategory(e.target.value)}
+          >
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+
+          <input className='search-bar-btn'
+            type="number"
+            placeholder="Digite o limite de itens"
+            value={searchLimit}
+            onChange={(e) => setSearchLimit(e.target.value)}
+          />
+          <button onClick={handleSearch}>Buscar</button>
+        </div>
+      </div>
       <hr />
       <div className='card-container'>
         <div className="card-grid">
