@@ -12,7 +12,7 @@ const MercadoLivreProducts = () => {
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('MLB1051');
-  const [limit, setLimit] = useState(20);
+  var [limit, setLimit] = useState(20);
   const [searchCategory, setSearchCategory] = useState('MLB1051'); // categoria inicial
   const [searchLimit, setSearchLimit] = useState(); // limite inicial
 
@@ -24,12 +24,16 @@ const MercadoLivreProducts = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
+      if (limit > 30){
+        limit = 30;
+        alert('Não é permitido uma quantidade maior do que 30 itens.')
+      }
       const response = await axios.get(
         `https://api.mercadolibre.com/sites/MLB/search?category=${category}&limit=${limit}`
       );
       setProducts(response.data.results);
     } catch (err) {
-      setError('Error fetching data');
+      setError(`Error fetching data.\nhttps://api.mercadolibre.com/sites/MLB/search?category=${category}&limit=${limit}`);
     }
     setLoading(false);
   };
@@ -81,7 +85,7 @@ const MercadoLivreProducts = () => {
 
           <input className='search-bar-btn'
             type="number"
-            placeholder="Digite o limite de itens"
+            placeholder="Digite a quantidade de itens"
             value={searchLimit}
             onChange={(e) => setSearchLimit(e.target.value)}
           />
